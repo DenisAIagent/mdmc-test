@@ -1,4 +1,4 @@
-// routes/artists.js (Correction de la casse)
+// routes/artists.js (Correction chemin et casse)
 
 const express = require('express');
 const {
@@ -7,8 +7,8 @@ const {
   getArtistBySlug,
   updateArtist,
   deleteArtist
-  // Assurez-vous que les noms ici correspondent EXACTEMENT à ceux exportés dans ArtistController.js
-} = require('./controllers/ArtistController'); // <<< CASE CORRIGÉE ICI (Majuscules A et C)
+  // Assurez-vous que les noms ici correspondent EXACTEMENT à ceux exportés dans ../controllers/ArtistController.js
+} = require('../controllers/ArtistController'); // <<< CHEMIN ET CASSE CORRIGÉS ICI
 
 // Importer les middlewares de protection (si/quand vous les aurez)
 // const { protect, authorize } = require('../middleware/auth'); // Exemple
