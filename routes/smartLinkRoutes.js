@@ -1,4 +1,4 @@
-// routes/smartLinkRoutes.js
+// routes/smartLinkRoutes.js (Correction chemin et casse)
 
 const express = require('express');
 const {
@@ -9,7 +9,8 @@ const {
   deleteSmartLinkById,
   getSmartLinksByArtistSlug,
   getSmartLinkBySlugs
-} = require('../controllers/SmartLinkController'); // Importer les fonctions du contrôleur
+  // Assurez-vous que les noms ici correspondent EXACTEMENT à ceux exportés dans ../controllers/SmartLinkController.js
+} = require('../controllers/SmartLinkController'); // <<< CHEMIN ET CASSE CORRIGÉS ICI
 
 // Importer les middlewares de protection (si/quand vous les aurez)
 // const { protect, authorize } = require('../middleware/auth'); // Exemple
@@ -20,25 +21,25 @@ const router = express.Router();
 
 // Correspondra à /api/v1/smartlinks
 router.route('/')
-  .post(/* protect, authorize('admin'), */ createSmartLink)      // Créer un SmartLink
-  .get(/* protect, authorize('admin'), */ getAllSmartLinks);       // Lister tous les SmartLinks (avec filtres/pagination)
+  .post(/* protect, authorize('admin'), */ createSmartLink)
+  .get(/* protect, authorize('admin'), */ getAllSmartLinks);
 
 // Correspondra à /api/v1/smartlinks/:id
 router.route('/:id')
-  .get(/* protect, authorize('admin'), */ getSmartLinkById)        // Lire un SmartLink par son ID
-  .put(/* protect, authorize('admin'), */ updateSmartLinkById)     // Mettre à jour un SmartLink par son ID
-  .delete(/* protect, authorize('admin'), */ deleteSmartLinkById); // Supprimer un SmartLink par son ID
+  .get(/* protect, authorize('admin'), */ getSmartLinkById)
+  .put(/* protect, authorize('admin'), */ updateSmartLinkById)
+  .delete(/* protect, authorize('admin'), */ deleteSmartLinkById);
 
 
 // --- Routes spécifiques pour récupérer les données par Slugs (pour frontend/public) ---
 
 // Correspondra à /api/v1/smartlinks/by-artist/:artistSlug
 router.route('/by-artist/:artistSlug')
-  .get(getSmartLinksByArtistSlug); // Récupérer tous les SmartLinks d'un artiste via son slug
+  .get(getSmartLinksByArtistSlug);
 
 // Correspondra à /api/v1/smartlinks/details/:artistSlug/:trackSlug
 router.route('/details/:artistSlug/:trackSlug')
-  .get(getSmartLinkBySlugs); // Récupérer les détails d'un SmartLink spécifique via les slugs
+  .get(getSmartLinkBySlugs);
 
 
-module.exports = router; // Exporter le routeur configuré
+module.exports = router;
