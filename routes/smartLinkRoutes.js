@@ -9,7 +9,7 @@ const {
   deleteSmartLinkById,
   getSmartLinksByArtistSlug,
   getSmartLinkBySlugs
-} = require('../controllers/smartLinkController'); // Importer les fonctions du contrôleur
+} = require('./controllers/SmartLinkController'); // Importer les fonctions du contrôleur
 
 // Importer les middlewares de protection (si/quand vous les aurez)
 // const { protect, authorize } = require('../middleware/auth'); // Exemple
