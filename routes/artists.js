@@ -1,4 +1,4 @@
-// routes/artists.js
+// routes/artists.js (Corrigé)
 
 const express = require('express');
 const {
@@ -7,7 +7,7 @@ const {
   getArtistBySlug,
   updateArtist,
   deleteArtist
-} = require('../controllers/artistController'); // Importer les fonctions du contrôleur
+} = require('./controllers/artistController'); // <<< CHEMIN CORRIGÉ ICI
 
 // Importer les middlewares de protection (si/quand vous les aurez)
 // const { protect, authorize } = require('../middleware/auth'); // Exemple
