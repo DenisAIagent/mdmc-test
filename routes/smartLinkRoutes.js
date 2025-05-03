@@ -1,4 +1,4 @@
-// routes/smartLinkRoutes.js (Correction chemin et casse)
+// routes/smartLinkRoutes.js (Correction finale chemin ET casse)
 
 const express = require('express');
 const {
@@ -9,8 +9,8 @@ const {
   deleteSmartLinkById,
   getSmartLinksByArtistSlug,
   getSmartLinkBySlugs
-  // Assurez-vous que les noms ici correspondent EXACTEMENT à ceux exportés dans ../controllers/SmartLinkController.js
-} = require('../controllers/SmartLinkController'); // <<< CHEMIN ET CASSE CORRIGÉS ICI
+  // Assurez-vous que les noms ici correspondent EXACTEMENT à ceux exportés dans ../controllers/smartLinkController.js
+} = require('../controllers/smartLinkController'); // <<< CHEMIN ../ ET CASSE (minuscules) CORRIGÉS ICI
 
 // Importer les middlewares de protection (si/quand vous les aurez)
 // const { protect, authorize } = require('../middleware/auth'); // Exemple
