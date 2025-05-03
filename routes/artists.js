@@ -1,4 +1,4 @@
-// routes/artists.js (Corrigé)
+// routes/artists.js (Correction de la casse)
 
 const express = require('express');
 const {
@@ -7,7 +7,8 @@ const {
   getArtistBySlug,
   updateArtist,
   deleteArtist
-} = require('./controllers/artistController'); // <<< CHEMIN CORRIGÉ ICI
+  // Assurez-vous que les noms ici correspondent EXACTEMENT à ceux exportés dans ArtistController.js
+} = require('./controllers/ArtistController'); // <<< CASE CORRIGÉE ICI (Majuscules A et C)
 
 // Importer les middlewares de protection (si/quand vous les aurez)
 // const { protect, authorize } = require('../middleware/auth'); // Exemple
@@ -18,13 +19,13 @@ const router = express.Router();
 
 // Route pour la racine ('/') de cette ressource (correspondra à /api/v1/artists)
 router.route('/')
-  .post(/* protect, authorize('admin'), */ createArtist) // POST pour créer un artiste (protégé admin)
-  .get(getAllArtists);                                  // GET pour lister tous les artistes (public/protégé ?)
+  .post(/* protect, authorize('admin'), */ createArtist)
+  .get(getAllArtists);
 
 // Route pour les opérations sur un artiste spécifique via son slug ('/:artistSlug')
 router.route('/:artistSlug')
-  .get(getArtistBySlug)                                     // GET pour récupérer un artiste spécifique (public/protégé ?)
-  .put(/* protect, authorize('admin'), */ updateArtist)       // PUT pour mettre à jour un artiste (protégé admin)
-  .delete(/* protect, authorize('admin'), */ deleteArtist);  // DELETE pour supprimer un artiste (protégé admin)
+  .get(getArtistBySlug)
+  .put(/* protect, authorize('admin'), */ updateArtist)
+  .delete(/* protect, authorize('admin'), */ deleteArtist);
 
-module.exports = router; // Exporter le routeur configuré
+module.exports = router;
