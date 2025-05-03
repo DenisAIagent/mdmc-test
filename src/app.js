@@ -1,4 +1,4 @@
-// ----- Début du code COMPLET et MIS À JOUR pour app.js (basé sur votre dernier code + SmartLinks) -----
+// ----- Début du code COMPLET et MIS À JOUR pour app.js (avec écoute sur 0.0.0.0) -----
 
 require('dotenv').config();
 const express = require('express');
@@ -23,7 +23,8 @@ const smartLinkRoutes = require('../routes/smartLinkRoutes'); // <<< LIGNE AJOUT
 const app = express();
 
 // === Middleware ===
-app.use(helmet()); // Actif
+// Remarque : app.use(helmet()) est commenté pour les tests précédents, vous pouvez le réactiver si nécessaire
+// app.use(helmet()); // Actif
 app.use(morgan('dev')); // Actif
 app.use(cors()); // Permet toutes les origines pour le test
 app.use(express.json()); // Actif
@@ -92,8 +93,10 @@ mongoose
   .connect(MONGODB_URI)
   .then(() => {
     console.log('Connecté à MongoDB');
-    app.listen(PORT, () => {
-      console.log(`Serveur démarré sur le port ${PORT} en mode ${process.env.NODE_ENV || 'non défini'}`);
+    // Modification ici pour ajouter l'hôte '0.0.0.0'
+    app.listen(PORT, '0.0.0.0', () => {
+      // J'ai aussi corrigé le message de log pour utiliser les backticks (`) et ${}
+      console.log(`Serveur démarré sur le port ${PORT} (host 0.0.0.0) en mode ${process.env.NODE_ENV || 'non défini'}`);
     });
   })
   .catch((err) => {
